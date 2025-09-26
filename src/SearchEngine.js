@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import OpenAI from "openai";
 
 export default function SearchEngine() {
   let [keyword, setKeyword] = useState("");
@@ -11,10 +10,7 @@ export default function SearchEngine() {
 
   function search(event) {
     event.preventDefault();
-    const client = new OpenAI({
-      apiKey: "KHanpt564PP6qDJM82fOIHJpiXxi6nOK-da_dOgYfB8",
-      apiUrl: `https://api.poe.com/v1${keyword}`,
-    });
+    let apiUrl = `https://api.poe.com/v1${keyword}`;
     console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
   }
@@ -33,3 +29,4 @@ export default function SearchEngine() {
 }
 
 // https://poe.com/api_key
+//apiKey: "KHanpt564PP6qDJM82fOIHJpiXxi6nOK-da_dOgYfB8"
